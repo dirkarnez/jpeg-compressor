@@ -1,3 +1,3 @@
-module github.com/dirkarnez/curlheader-playground
+module github.com/dirkarnez/jpegcompressor
 
 go 1.17
