@@ -1,4 +1,4 @@
 jpeg-compressor
 ===============
 ### TODO
-- [ ] fix auto-rotation issue
+- [x] fix auto-rotation issue
