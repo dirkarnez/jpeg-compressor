@@ -1,10 +1,8 @@
 package main
 
 import (
-	"image"
-	"image/color"
 	"log"
-
+	"image/jpeg"
 	"github.com/disintegration/imaging"
 )
 
@@ -40,20 +38,19 @@ func main() {
 	// )
 
 	// // Create a new image and paste the four produced images into it.
-	// dst := imaging.New(400, 400, color.NRGBA{0, 0, 0, 0})
-	// dst = imaging.Paste(dst, img1, image.Pt(0, 0))
+
 	// dst = imaging.Paste(dst, img2, image.Pt(0, 200))
 	// dst = imaging.Paste(dst, img3, image.Pt(200, 0))
 	// dst = imaging.Paste(dst, img4, image.Pt(200, 200))
 
   // Open a test image.
-	src, err := imaging.Open("in.png")
+	src, err := imaging.Open("in.jpg", imaging.AutoOrientation(true))
 	if err != nil {
 		log.Fatalf("failed to open image: %v", err)
 	}
-
+	
 	// Save the resulting image as JPEG.
-	err = imaging.Save(dst, "out_example.jpg")
+	err = imaging.Save(src, "out.jpg", imaging.JPEGQuality(jpeg.DefaultQuality))
 	if err != nil {
 		log.Fatalf("failed to save image: %v", err)
 	}
